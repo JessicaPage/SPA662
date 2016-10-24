@@ -1,0 +1,22 @@
+#include <cmath> // for sqrt()
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+const int tmax = 1000; // number of time steps
+const double dt = 0.1; // time step
+
+int main(void)
+{
+  double xRK4[tmax+1], yRK4[tmax + 1], der_y[tmax+1];
+  
+  
+  
+  
+  
+
+  //initial condition 
+  
+
+  
