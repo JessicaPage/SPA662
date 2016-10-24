@@ -4,7 +4,6 @@
 
 using namespace std;
 
-//part a
 const int tmax = 1000; // number of time steps
 const double dt = 0.1; // time step to make x range from 0 to 10
 const double e_tol = 1.0e-03;
@@ -32,7 +31,6 @@ double f_x(long double x, long double y, double s) {
 };   
   
 double RK45(double h, long double x, long double y, long double &y_ans, long double &z_ans, long double &rel_e, double s) {
-   //y = y0;
    double k1,k2,k3,k4,k5,k6; 
    k1 = h*f_x(x,y,s);
    k2 = h*f_x((x+h/4.0),(y+k1/4.0),s);
@@ -49,14 +47,16 @@ double RK45(double h, long double x, long double y, long double &y_ans, long dou
 int main(void)
 {
    long double xRK45[tmax+1], yRK45[tmax+1], yRK4[tmax+1], yRK5[tmax+1], q_record[tmax+1];
+
    //initial condition 
-  
    //part a 
+
    xRK45[0] = 0.0;
    yRK45[0] = 0.0;
-   //part b
+
    yRK4[0] = 0.0;
    yRK5[0] = 0.0;
+
    int i;
    long double y_i, z_i, e_rel;
    long double q = 1.0;
@@ -75,26 +75,26 @@ int main(void)
 	  
 	  //part b
       yRK4[i+1] = y_i;
-	  yRK5[i+1] = z_i;
+      yRK5[i+1] = z_i;
      
       while (e_rel > e_tol ) { 
 	     
          RK45(q*dt,xRK45[i], yRK45[i],y_i, z_i, e_rel,s_use);
-		 q = pow(e_tol*q*dt/(2.0*abs(z_i-y_i)), 0.25);
+         q = pow(e_tol*q*dt/(2.0*abs(z_i-y_i)), 0.25);
 
 	  }	 
-	  cout << "q" << " " << q << endl;
+      cout << "q" << " " << q << endl;
       if (q>2) {
          q=2.0;
 	  }
-	  yRK45[i+1] = y_i; 
-	  if ((y_i < y_high or y_i < y_low) and yRK45[i+1] > yRK45[i]) {
+      yRK45[i+1] = y_i;
+      //setting constraints i.e. S value 
+      if ((y_i < y_high or y_i < y_low) and yRK45[i+1] > yRK45[i]) {
          s_use=0.0;
 	  }
       else {
          s_use=1.0;
       }		
-	  //part c
       q_record[i] = q*dt;
 	     
    }; 

@@ -20,7 +20,6 @@ double function_analytic(double x) {
    return -sin(M_PI*cos(x));
 };   
 double RK45(double h, double x, double y, double &y_ans, double &z_ans, double &rel_e) {
-   //y = y0;
    double k1,k2,k3,k4,k5,k6; 
    k1 = h*f_x(x,y);
    k2 = h*f_x((x+h/4.0),(y+k1/4.0));
@@ -56,20 +55,20 @@ int main(void)
    cout << "x" << " " << "y" << " " << "y_analytic" << " " << "yRK4" << " " << "yRK5" << " " << "h" << endl;
    for (i=0;i<=tmax;i++) {
       RK45(q*dt,xRK45[i], yRK45[i],y_i, z_i, e_rel);
-	  //cout << "e_rel" << " " << e_rel << endl;
+      //cout << "e_rel" << " " << e_rel << endl;
       q = pow(e_tol*dt/(2.0*abs(z_i-y_i)), 0.25);
-	  //cout << "q" << " " << q << " " << "h" << " " << q*dt << endl;
+      //cout << "q" << " " << q << " " << "h" << " " << q*dt << endl;
 	  
-	  //part b
+      //part b
       yRK4[i+1] = y_i;
-	  yRK5[i+1] = z_i;
+      yRK5[i+1] = z_i;
 	  
       while (e_rel > e_tol) { 
 	     
          RK45(q*dt,xRK45[i], yRK45[i],y_i, z_i, e_rel);
-		 q = pow((e_tol*dt)/(2.0*abs(z_i-y_i)), 0.25);
+         q = pow((e_tol*dt)/(2.0*abs(z_i-y_i)), 0.25);
 	  }	 
-	  yRK45[i+1] = y_i; 
+      yRK45[i+1] = y_i; 
 	  
 	  //part c
       q_record[i] = dt;
