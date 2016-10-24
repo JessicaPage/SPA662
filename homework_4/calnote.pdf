@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>DCC - LIGO Document Control Center Portal</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<script type="text/javascript" src="./js/show-login.js"></script>
+<link rel="stylesheet" type="text/css" href="./idpselect.css">
+</head>
+
+<body onLoad="document.getElementsByName('loginbutton')[0].focus();">
+
+	<!-- Double auth login popup -->
+        <div id="infobox" style="visibility:hidden;">
+                <span id="myMessage" name="myMessage"></span>
+                <hr>
+                <div id="closer">
+                <input type=checkbox id=mybox>Do not show this again.
+		<hr>
+                <a onclick="checkBox();document.getElementById('infobox').style.display='none';return false;" href=""><input type="button" value="OK"></a>
+                </div>
+        </div>
+        <!-- /Double auth login popup -->
+
+<div id="container-header">
+	<div id="header-box">
+		<div id="header-nav">
+			<ul>
+				<li><a href="https://dcc.ligo.org/wiki/index.php/Quick_Start_Guide_-_What_to_do%3F">Get started</a></li>
+				<li><a href="https://dcc.ligo.org/wiki/index.php/FAQ">FAQ</a></li>
+				<li><a href="https://dcc.ligo.org/wiki/index.php/Main_Page">Documentation</a></li>
+				<li><a href="https://dcc.ligo.org/wiki/index.php/Getting_DCC_Help">Help</a></li>
+			</ul>
+		</div>
+		<div id="header">
+			LIGO Document Control Center Portal
+		</div>
+
+      <div id="search">
+         <form method="get" target="_blank" action="https://dcc.ligo.org/cgi-bin/DocDB/Search" id="cse-search-box">
+            <div class="searchbox">
+               <input type="text" name="simpletext"
+               id="q" size="31" value="Google public document search"
+               onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" />
+               <input type="submit" name="sa" id="sa" value="Go" />
+            </div>
+         </form>
+		</div>
+	</div>
+</div>
+
+
+<div id="container-main">
+	<div id="feature2">
+		<div id="feature2-buttons">
+			<input type="image"
+                 src="./images/enter-login-4.png"
+                  id="loginbutton"
+                name="loginbutton"
+               value=""
+             onclick="setVisibility('loginbox', 'inline');"
+             onfocus="this.src='./images/enter-login-4-hover.png'"
+              onblur="this.src='./images/enter-login-4.png'" > 
+         &nbsp; 
+			<input type="image"
+                 src="./images/enter-public-4.png"
+                name="public"
+               value=""
+             onclick="self.location='https://dcc.ligo.org/cgi-bin/DocDB/DocumentDatabase'"
+             onfocus="this.src='./images/enter-public-4-hover.png'"
+              onblur="this.src='./images/enter-public-4.png'" >
+			<div id="loginbox">
+				<div id="loginboxcloser">
+               <a onclick="document.getElementById('loginbox').style.display='';return false;"
+                     href="">[x] close</a>
+            </div>
+            <div id="idpSelect"></div>
+            <script src="./typeahead.js"        type="text/javascript"></script>
+            <script src="./idpselect_config.js" type="text/javascript"></script>
+            <script src="./idpselect.js"        type="text/javascript"></script>
+            <noscript>
+            <!--
+               Your browser does not support javascript.  Please use
+               <a href="http://federation.org/DS/DS?entityID=https%3A%2F%2FyourentityId.edu.edu%2Fshibboleth&return=https%3A%2F%2Fyourreturn.edu%2FShibboleth.sso%2FDS%3FSAMLDS%3D1%26target%3Dhttps%3A%2F%2Fyourreturn.edu%2F">this link</a>.    
+            -->
+            </noscript>
+			</div>
+
+		</div>
+	</div>
+	<div id="main">
+
+   <center>
+      <div id=gwannounce>
+         <span id=P150914>
+            <a href=https://dcc.ligo.org/LIGO-P150914/public/main><h2>Observation of Gravitational Waves from a Binary Black Hole Merger</h2></a>
+            <br>
+            <a href=https://dcc.ligo.org/LIGO-P150914/public/main><img src="/prl_cover.png"></a>
+            <p></p>
+            <b>Related Publications&nbsp;&nbsp;</b><a href=https://papers.ligo.org><b>papers.ligo.org</b></a>
+         </span>
+         <span id=P151226>
+            <a href=https://dcc.ligo.org/LIGO-P151226/public/main><h2>Observation of Gravitational Waves from a 22-Solar-Mass Binary Black Hole Coalescence</h2></a>
+            <br>
+            <a href=https://dcc.ligo.org/LIGO-P151226/public/main><img width=361 height=361 src="/m1_m2.png"></a>
+            <p></p>
+            <b>Related Publications&nbsp;&nbsp;</b><a href=https://papers.ligo.org><b>papers.ligo.org</b></a>
+         </span>
+      </div>
+   </center>
+
+		<div id="about">
+			<h2>about</h2>
+
+			<h3>Accessing private documents</h3>
+			<p>
+				You'll need a login name and password.  For LIGO members and affiliates, it's your <a href="https://my.ligo.org/">ligo.org</a> login of the <i>albert.einstein</i> type.<br>
+            Don't have a LIGO account? <a href="https://my.ligo.org/">Request an account</a>.<br>
+            Have a LIGO account but <a href="https://my.ligo.org/pwreset.php">forgot your password</a>?</p>
+
+			<h3>Using the DCC</h3>
+			<p>
+				<a href="/wiki/index.php/Quick_Start_Guide_-_What_to_do%3F">Quick start guide</a><br>
+				<a href="/wiki/index.php/FAQ">Frequently asked questions</a><br>
+				<a href="/wiki/index.php/Main_Page">Documentation</a>:  A user manual of all DCC features.<br>
+				<a href="/wiki/index.php/Getting_DCC_Help">Getting help</a>:  Where to look and what to do.</p>
+
+			<h3>Mirrors</h3>
+			<p>
+				Backup read-only DCC systems are available at <a href="https://dcc-lho.ligo.org/">LHO</a>
+				and <a href="https://dcc-llo.ligo.org/">LLO</a>.  They can be used when central DCC is unavailable.</p>
+		</div>
+
+		<div id="news">
+			<h2>news</h2>
+			<div class="news-scroll">
+			<table width="100%" class="newstable" summary="Table is used for layout purposes only.">
+            <tr>
+               <td class="news-date">Jun-2016</td>
+               <td class="news-cont">
+               <b><font size=+1 color=red>GW151226</font></b>
+               <br>
+               <a href=http://papers.ligo.org><b><font color=blue>Observation of Gravitational Waves from a 22-Solar-mass Binary Black Hole Coalescence</font></b></a>
+               </td>
+               </tr>
+            <tr>
+               <td class="news-date">Feb-2016</td>
+               <td class="news-cont">
+               <b><font size=+1 color=red>GW150914</font></b>
+               <br>
+               <a href=http://papers.ligo.org><b><font color=blue>Observation of Gravitational Waves from a Binary Black Hole Merger</font></b></a>
+               </td>
+               </tr>
+		      </table>
+		   </div>
+	   </div>
+   </div>
+</div>
+
+<div id="container-footer">
+	<div id="footer">
+		<table width="100%" class="footer-table" summary="Table is used for layout purposes only.">
+			<tr>
+				<td width="25%">
+					<strong>About</strong><br><br>
+					<a href="https://my.ligo.org/">Request a LIGO account</a><br>
+					<a href="https://my.ligo.org/pwreset.php">Reset your password</a><br><br>
+
+					<a href="https://dcc.ligo.org/wiki/index.php/Quick_Start_Guide_-_What_to_do%3F">Getting started with DCC</a><br>
+					<a href="https://dcc.ligo.org/wiki/index.php/FAQ">FAQ</a><br>
+					<a href="https://dcc.ligo.org/wiki/index.php/Main_Page">User manual</a><br><br>
+					
+					<a href="https://dcc.ligo.org/cgi-bin/DocDB/DocumentDatabase">Quick search</a><br>
+					<a href="https://dcc.ligo.org/cgi-bin/DocDB/SearchForm">Advanced search</a><br>
+					<!--<a href="http://admdbsrv.ligo.caltech.edu/dcc/">Old DCC search</a><br>-->
+					<a href="https://dcc.ligo.org/wiki/index.php/Getting_DCC_Help">Help</a><br>
+				</td>
+				<td width="25%">
+					<strong>Mirrors</strong><br><br>
+					<a href="https://dcc-lho.ligo.org/">LHO</a><br>
+					<a href="https://dcc-llo.ligo.org/">LLO</a><br>
+				</td>
+				<td>
+					<strong>Contact</strong><br><br>
+					<a href="mailto:dcc-help@ligo.org">DCC Help</a><br>
+					<a href="https://my.ligo.org/support.php">MyLIGO Help</a><br><br>
+					<a href="mailto:veronica@ligo.caltech.edu">Web</a><br><br>
+				</td>
+
+			</tr>
+			<tr>
+				<td colspan="3">
+					<hr size="1" color="#ddd">
+					Supported by the <a href="http://www.nsf.gov/">National Science Foundation</a><br>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
+
+
+
+</body>
+</html>
+
+<script src="./js/browser-bugs.js"></script>
+<script>showBox();</script>
